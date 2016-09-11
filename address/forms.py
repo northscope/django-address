@@ -34,7 +34,6 @@ class AddressWidget(forms.TextInput):
             query_parms += '&key={}'.format(settings.GOOGLE_API_KEY)
 
         return forms.Media(js=(
-            'js/jquery.min.js',
             'address/js/jquery.geocomplete.js',
             'address/js/address.js',
             maps_api + query_parms))
