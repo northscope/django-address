@@ -25,18 +25,6 @@ class AddressWidget(forms.TextInput):
                   ('state_code', 'administrative_area_level_1_short'),
                   ('formatted', 'formatted_address'),
                   ('latitude', 'lat'), ('longitude', 'lng')]
-
-    def _media(self):
-        maps_api = 'https://maps.googleapis.com/maps/api/js'
-        query_parms = '?libraries=places'
-
-        if getattr(settings, 'GOOGLE_API_KEY', None) is not None:
-            query_parms += '&key={}'.format(settings.GOOGLE_API_KEY)
-
-        return forms.Media(js=(
-            maps_api + query_parms))
-
-    media = property(_media)
     
     def __init__(self, *args, **kwargs):
         attrs = kwargs.get('attrs', {})
